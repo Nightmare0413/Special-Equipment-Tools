@@ -135,12 +135,24 @@
             line-height: 1;
         }
 
+        /* 让内联 SVG 自适应现有图标尺寸与配色 */
+        .icon svg {
+            width: 56px;
+            height: 56px;
+            display: block;
+            margin: 0 auto;
+        }
+
         .elevator-icon {
             color: #4a5568;
         }
 
-        .pressure-icon {
-            color: #2d3748;
+        .pe-icon {
+            color: #2563eb;
+        }
+
+        .steel-icon {
+            color: #dc2626;
         }
 
         @media (min-width: 768px) {
@@ -168,13 +180,20 @@
 
         @media (min-width: 1024px) {
             .container {
-                max-width: 800px;
+                max-width: 1200px;
             }
             
             .modules {
                 display: grid;
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr);
                 gap: 30px;
+                align-items: stretch;
+                justify-content: center;
+            }
+            
+            .module {
+                height: auto;
+                min-height: 400px;
             }
         }
     </style>
@@ -204,11 +223,59 @@
                 </div>
             </div>
 
-            <!-- 承压模块 -->
+            <!-- PE管工具模块 -->
             <div class="module">
-                <div class="icon pressure-icon">🔧</div>
-                <h2>承压设备工具</h2>
+                <div class="icon pe-icon">
+                    <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+                        <!-- 弯头管道主体（加厚） -->
+                        <path d="M16 52 v-10 a22 22 0 0 1 22-22 h10 v12 h-10 a10 10 0 0 0 -10 10 v10 z" fill="currentColor"></path>
+                        <!-- 入口法兰 -->
+                        <circle cx="16" cy="52" r="8" fill="none" stroke="currentColor" stroke-width="4"></circle>
+                        <circle cx="16" cy="52" r="3" fill="currentColor"></circle>
+                        <!-- 出口法兰 -->
+                        <circle cx="48" cy="20" r="8" fill="none" stroke="currentColor" stroke-width="4"></circle>
+                        <circle cx="48" cy="20" r="3" fill="currentColor"></circle>
+                        <!-- 流向箭头（沿弯头方向） -->
+                        <polygon points="40,16 46,16 46,10 58,22 46,34 46,28 40,28" fill="#ffffff"></polygon>
+                    </svg>
+                </div>
+                <h2>PE管工具</h2>
                 <div class="tool-links">
+                    <a href="承压/在役聚乙烯燃气管道失效评分系统.html" class="tool-link">
+                        ⚠️ 聚乙烯管道风险评估
+                    </a>
+                    <a href="承压/PE管减薄情况下最大工作压力计算.html" class="tool-link">
+                        📊 PE管减薄压力计算
+                    </a>
+                    <div class="tool-link coming-soon">
+                        📋 敬请期待更多功能
+                    </div>
+                </div>
+            </div>
+
+            <!-- 埋地钢管工具模块 -->
+            <div class="module">
+                <div class="icon steel-icon">
+                    <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+                        <!-- 双层厚管道 + 阀门新样式 -->
+                        <!-- 横向粗管 -->
+                        <rect x="6" y="22" width="52" height="20" rx="6" ry="6" fill="currentColor"></rect>
+                        <!-- 中心竖向粗管（T 形） -->
+                        <rect x="28" y="10" width="8" height="18" rx="3" ry="3" fill="currentColor"></rect>
+                        <!-- 两端加厚法兰 -->
+                        <circle cx="6" cy="32" r="7" fill="none" stroke="currentColor" stroke-width="4"></circle>
+                        <circle cx="58" cy="32" r="7" fill="none" stroke="currentColor" stroke-width="4"></circle>
+                        <!-- 阀门（加粗手轮与手柄） -->
+                        <circle cx="32" cy="20" r="6" fill="#ffffff" stroke="currentColor" stroke-width="3"></circle>
+                        <line x1="28" y1="20" x2="36" y2="20" stroke="currentColor" stroke-width="3"/>
+                        <line x1="32" y1="16" x2="32" y2="24" stroke="currentColor" stroke-width="3"/>
+                    </svg>
+                </div>
+                <h2>埋地钢管工具</h2>
+                <div class="tool-links">
+                    <a href="承压/埋地钢制燃气管道/index.html" class="tool-link">
+                        ⚠️ 埋地钢制燃气管道风险评估
+                    </a>
                     <a href="承压/腐蚀防护系统(3).html" class="tool-link">
                         🛡️ 腐蚀防护系统评估
                     </a>
